@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUFISICA 3000 - Inicio - Mg. Jhon Alvaro Capacho Leal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-alert { /* Estilos de alerta (repetidos para cada página) */
+            position: fixed; top: 20px; right: 20px; padding: 1rem; border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; opacity: 0;
+            transform: translateY(-20px); transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        .custom-alert.show { opacity: 1; transform: translateY(0); }
+        .custom-alert-success { background-color: #d1fae5; color: #065f46; }
+        .custom-alert-info { background-color: #dbeafe; color: #1e40af; }
+        .card-hover-effect { /* Animación de tarjetas (repetida para cada página) */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        /* Estilo para el enlace de navegación activo */
+        .nav-active {
+            font-weight: 700; /* Bold */
+            color: #2563eb; /* text-blue-600 */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 text-gray-900 min-h-screen flex flex-col">
+
+    <header class="bg-white bg-opacity-80 shadow-lg backdrop-blur-md sticky top-0 z-50 rounded-b-lg">
+        <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-600">
+                    EDUFISICA 3000
+                </h1>
+                <p class="text-sm text-gray-600">Por Mg. Jhon Alvaro Capacho Leal</p>
+            </div>
+            <nav class="mt-4 sm:mt-0 space-x-1 sm:space-x-2">
+                <a href="index.html" class="nav-active text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Inicio</a>
+                <a href="conceptos.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Conceptos</a>
+                <a href="actividades.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Actividades</a>
+                <a href="recursos.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Recursos</a>
+                <a href="info_docente.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Info Docente</a>
+                <a href="contacto.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 flex-grow">
+        <section id="inicio" class="my-12 p-8 bg-white bg-opacity-90 shadow-xl rounded-xl backdrop-blur-md">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-6">
+                ¡Bienvenidos a EDUFISICA 3000!
+            </h2>
+            <p class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto mb-4">
+                Soy el Magíster <strong>Jhon Alvaro Capacho Leal</strong>, docente de Educación Física, y te invito a descubrir la importancia del movimiento
+                y cómo la actividad física puede transformar tu vida.
+            </p>
+            <p class="text-md text-gray-600 leading-relaxed text-center max-w-2xl mx-auto">
+                La Educación Física es la disciplina que abarca todo lo relacionado con el uso del cuerpo humano y cómo ayuda a la formación integral del ser humano.
+            </p>
+            <div class="mt-8 text-center">
+                <a href="conceptos.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Explorar Contenido
+                </a>
+            </div>
+        </section>
+        </main>
+
+    <footer class="bg-gray-800 bg-opacity-90 text-white text-center py-6 shadow-inner rounded-t-lg">
+        <p>&copy; <span id="currentYear"></span> EDUFISICA 3000 - Mg. Jhon Alvaro Capacho Leal.</p>
+        <p class="text-sm text-gray-400">Promoviendo un estilo de vida activo y saludable con la guía de un experto.</p>
+    </footer>
+
+    <div id="alertContainer"></div>
+
+    <script>
+        // JavaScript para index.html (principalmente para el año y alertas si fueran necesarias)
+        /**
+         * Muestra una alerta personalizada.
+         * @param {string} message - El mensaje a mostrar.
+         * @param {string} [type='info'] - El tipo de alerta ('info' o 'success').
+         */
+        function showAlert(message, type = 'info') {
+            const alertContainer = document.getElementById('alertContainer');
+            if (!alertContainer) return;
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `custom-alert ${type === 'success' ? 'custom-alert-success' : 'custom-alert-info'}`;
+            alertDiv.textContent = message;
+            alertContainer.appendChild(alertDiv);
+            requestAnimationFrame(() => { alertDiv.classList.add('show'); });
+            setTimeout(() => {
+                alertDiv.classList.remove('show');
+                setTimeout(() => { if (alertDiv.parentNode === alertContainer) { alertContainer.removeChild(alertDiv); } }, 300);
+            }, 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYearElement = document.getElementById('currentYear');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+            // El smooth scroll para anclas internas ya no es el método principal de navegación.
+            // Se puede mantener si hay anclas internas dentro de una misma página larga.
+        });
+
+        document.addEventListener('error', function(event) { // Manejo de errores de imagen
+            if (event.target.tagName.toLowerCase() === 'img' && !event.target.getAttribute('onerror')) {
+                const altText = event.target.alt || 'Imagen no disponible';
+                event.target.src = `https://placehold.co/600x400/CCCCCC/969696?text=${encodeURIComponent(altText)}`;
+                console.warn(`Error al cargar imagen: ${event.target.src}. Reemplazada.`);
+            }
+        }, true);
+    </script>
+</body>
+</html>
+<!-- Fin del código HTML -->

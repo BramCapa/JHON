@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUFISICA 3000 - Conceptos - Mg. Jhon Alvaro Capacho Leal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-alert { position: fixed; top: 20px; right: 20px; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; opacity: 0; transform: translateY(-20px); transition: opacity 0.3s ease-out, transform 0.3s ease-out; }
+        .custom-alert.show { opacity: 1; transform: translateY(0); }
+        .custom-alert-success { background-color: #d1fae5; color: #065f46; }
+        .custom-alert-info { background-color: #dbeafe; color: #1e40af; }
+        .card-hover-effect { transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+        .card-hover-effect:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+        .nav-active { font-weight: 700; color: #2563eb; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 text-gray-900 min-h-screen flex flex-col">
+
+    <header class="bg-white bg-opacity-80 shadow-lg backdrop-blur-md sticky top-0 z-50 rounded-b-lg">
+        <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-600">
+                    EDUFISICA 3000
+                </h1>
+                <p class="text-sm text-gray-600">Por Mg. Jhon Alvaro Capacho Leal</p>
+            </div>
+            <nav class="mt-4 sm:mt-0 space-x-1 sm:space-x-2">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Inicio</a>
+                <a href="conceptos.html" class="nav-active text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Conceptos</a>
+                <a href="actividades.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Actividades</a>
+                <a href="recursos.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Recursos</a>
+                <a href="info_docente.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Info Docente</a>
+                <a href="contacto.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 flex-grow">
+        <section id="conceptos" class="my-16 p-8 bg-white bg-opacity-90 shadow-xl rounded-xl backdrop-blur-md">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-8">Educación Física: Fundamentos y Beneficios</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://placehold.co/600x400/93C5FD/1F2937?text=Conceptos+Clave+EF" alt="[Imagen ilustrativa de conceptos de educación física]" class="rounded-lg shadow-md w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/969696?text=Imagen+no+disponible';">
+                </div>
+                <div class="text-gray-700 space-y-4">
+                    <p>La Educación Física va más allá del simple ejercicio; es una herramienta pedagógica crucial para el desarrollo motriz, cognitivo, afectivo y social. A través de ella, aprendemos sobre nuestro cuerpo, sus capacidades y cómo cuidarlo.</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mt-4">Áreas Principales:</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li><strong>Desarrollo Motor:</strong> Coordinación, equilibrio, agilidad.</li>
+                        <li><strong>Salud y Bienestar:</strong> Hábitos de vida activa, prevención de enfermedades.</li>
+                        <li><strong>Expresión Corporal:</strong> Comunicación a través del movimiento.</li>
+                        <li><strong>Juego y Deporte:</strong> Reglas, trabajo en equipo, superación.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 bg-opacity-90 text-white text-center py-6 shadow-inner rounded-t-lg">
+        <p>&copy; <span id="currentYear"></span> EDUFISICA 3000 - Mg. Jhon Alvaro Capacho Leal.</p>
+        <p class="text-sm text-gray-400">Promoviendo un estilo de vida activo y saludable con la guía de un experto.</p>
+    </footer>
+
+    <div id="alertContainer"></div> <script>
+        // JavaScript para conceptos.html
+        function showAlert(message, type = 'info') { /* Definición de showAlert */ }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYearElement = document.getElementById('currentYear');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+        });
+        document.addEventListener('error', function(event) { /* Manejo de errores de imagen */ }, true);
+        // Nota: La función showAlert se define aquí pero no se usa en esta página específica.
+        // Podrías omitirla o moverla a un archivo .js común si prefieres.
+    </script>
+</body>
+</html>

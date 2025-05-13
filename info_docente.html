@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUFISICA 3000 - Info Docente - Mg. Jhon Alvaro Capacho Leal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-alert { position: fixed; top: 20px; right: 20px; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; opacity: 0; transform: translateY(-20px); transition: opacity 0.3s ease-out, transform 0.3s ease-out; }
+        .custom-alert.show { opacity: 1; transform: translateY(0); }
+        .custom-alert-success { background-color: #d1fae5; color: #065f46; }
+        .custom-alert-info { background-color: #dbeafe; color: #1e40af; }
+        .card-hover-effect { transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+        .card-hover-effect:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+        .nav-active { font-weight: 700; color: #2563eb; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 text-gray-900 min-h-screen flex flex-col">
+
+    <header class="bg-white bg-opacity-80 shadow-lg backdrop-blur-md sticky top-0 z-50 rounded-b-lg">
+        <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-600">
+                    EDUFISICA 3000
+                </h1>
+                <p class="text-sm text-gray-600">Por Mg. Jhon Alvaro Capacho Leal</p>
+            </div>
+            <nav class="mt-4 sm:mt-0 space-x-1 sm:space-x-2">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Inicio</a>
+                <a href="conceptos.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Conceptos</a>
+                <a href="actividades.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Actividades</a>
+                <a href="recursos.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Recursos</a>
+                <a href="info_docente.html" class="nav-active text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Info Docente</a>
+                <a href="contacto.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 flex-grow">
+        <section id="info" class="my-16 p-8 bg-white bg-opacity-90 shadow-xl rounded-xl backdrop-blur-md">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">Un Mensaje de tu Docente</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3 text-center">
+                    <img src="https://placehold.co/300x300/A5B4FC/1F2937?text=Mg.+Jhon+A.+Capacho+L." alt="[Foto del Mg. Jhon Alvaro Capacho Leal]" class="rounded-full shadow-lg mx-auto w-48 h-48 md:w-64 md:h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/CCCCCC/969696?text=Docente';">
+                    <h3 class="text-xl font-semibold text-gray-800 mt-4">Mg. Jhon Alvaro Capacho Leal</h3>
+                    <p class="text-gray-600">Docente de Educación Física</p>
+                </div>
+                <div class="md:w-2/3 text-gray-700 space-y-4">
+                    <p class="text-lg leading-relaxed">
+                        Como Magíster en el área y apasionado por la Educación Física, mi objetivo es inspirarte a adoptar un estilo de vida activo.
+                        La actividad física no solo fortalece el cuerpo, sino también la mente y el espíritu.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        A lo largo de mi carrera, he visto cómo el deporte y el movimiento pueden transformar vidas, inculcando valores como la disciplina, el trabajo en equipo y la superación personal. 
+                        Este espacio está diseñado para compartir conocimientos, recursos y motivación. ¡Cada movimiento cuenta hacia una vida más plena y saludable!
+                    </p>
+                    <div class="mt-6 text-center md:text-left">
+                        <button onclick="showInfoAlert()" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                            Consejo del Docente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 bg-opacity-90 text-white text-center py-6 shadow-inner rounded-t-lg">
+        <p>&copy; <span id="currentYear"></span> EDUFISICA 3000 - Mg. Jhon Alvaro Capacho Leal.</p>
+        <p class="text-sm text-gray-400">Promoviendo un estilo de vida activo y saludable con la guía de un experto.</p>
+    </footer>
+
+    <div id="alertContainer"></div>
+    <script>
+        function showAlert(message, type = 'info') {
+            const alertContainer = document.getElementById('alertContainer');
+            if (!alertContainer) return;
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `custom-alert ${type === 'success' ? 'custom-alert-success' : 'custom-alert-info'}`;
+            alertDiv.textContent = message;
+            alertContainer.appendChild(alertDiv);
+            requestAnimationFrame(() => { alertDiv.classList.add('show'); });
+            setTimeout(() => {
+                alertDiv.classList.remove('show');
+                setTimeout(() => { if (alertDiv.parentNode === alertContainer) { alertContainer.removeChild(alertDiv); } }, 300);
+            }, 3000);
+        }
+
+        function showInfoAlert() {
+            const consejos = [
+                "Recuerda calentar antes de cualquier actividad física y estirar al finalizar.",
+                "La constancia es más importante que la intensidad al principio. ¡Pequeños pasos llevan a grandes cambios!",
+                "Encuentra una actividad que disfrutes, así será más fácil mantenerla a largo plazo.",
+                "¡No subestimes el poder del descanso! Es crucial para la recuperación muscular y el progreso.",
+                "Una buena alimentación complementa tu esfuerzo físico. ¡Somos lo que comemos!"
+            ];
+            const consejo = consejos[Math.floor(Math.random() * consejos.length)];
+            showAlert(consejo, 'success'); 
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYearElement = document.getElementById('currentYear');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+        });
+        document.addEventListener('error', function(event) { /* Manejo de errores de imagen */ }, true);
+    </script>
+</body>
+</html>
